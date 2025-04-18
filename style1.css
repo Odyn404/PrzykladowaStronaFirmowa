@@ -1,0 +1,236 @@
+
+/* Miło cię widzieć ponownie! Teraz tak: Kod jest ten sam, z tą różnicą, że skupimy się na tym, co znajduje się w {} a nie przed nimi */
+/* Nazwałem plik style1.css zamiast style.css, aby uniknąć konfliktu między stylami z sekcji <head> a tymi z pliku zewnętrznego (style1.css) */
+* {
+    margin: 0; /* Usuwa domyślne marginesy dla wszystkich elementów */
+    padding: 0; /* Usuwa domyślne wypełnienie */
+    box-sizing: border-box; /* Zapewnia, że padding i border są wliczane w szerokość i wysokość elementu */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Ustawia czcionkę Arial jako główną */
+    color: #e4e4e4; /* Ustawia kolor tekstu */
+    background-color: #f4f4f4; /* Jasnoszare tło całej strony */
+}
+
+/* Header */
+header {
+    background-color: #2c3e50; /* Ciemny niebiesko-szary kolor tła */
+    color: white; /* Biały kolor tekstu */
+    padding: 20px 0; /* Góra i dół: 20px, boki: 0 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lekki cień pod nagłówkiem */
+}
+
+header nav {
+    display: flex; /* Flexbox do układu poziomego */
+    justify-content: space-between; /* Przestrzeń pomiędzy logo a linkami */
+    align-items: center; /* Wyrównanie pionowe */
+    padding: 0 20px; /* Lewy i prawy padding po 20px */
+}
+
+header nav .logo h1 {
+    font-size: 1.8rem; /* Duży rozmiar czcionki logo */
+    font-weight: bold; /* Pogrubienie */
+}
+
+header nav .nav-links {
+    list-style: none; /* Usunięcie kropek przy liście */
+    display: flex; /* Układ poziomy linków */
+}
+
+header nav .nav-links li {
+    margin: 0 15px; /* Odstępy między linkami */
+}
+
+header nav .nav-links a {
+    text-decoration: none; /* Brak podkreślenia linków */
+    color: white; /* Biały kolor linków */
+    font-size: 1rem; /* Standardowy rozmiar tekstu */
+    font-weight: 500; /* Półpogrubiony */
+}
+
+header nav .nav-links a:hover {
+    color: #3498db; /* Niebieski kolor po najechaniu na link */
+}
+
+/* Sekcja Hero (baner powitalny) */
+.home {
+    background: linear-gradient(45deg, #3498db, #8e44ad); /* Gradientowe tło sekcji */
+    color: white; /* Biały tekst */
+    padding: 80px 20px; /* Duże wypełnienie dookoła */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    border-radius: 15px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Cień dla głębi */
+}
+
+.home h1 {
+    font-size: 3rem; /* Bardzo duży nagłówek */
+    margin-bottom: 20px; /* Odstęp pod nagłówkiem */
+}
+
+.home p {
+    font-size: 1.2rem; /* Nieco większy tekst */
+    margin-bottom: 40px; /* Większy odstęp pod paragrafem */
+}
+
+.home .cta {
+    background-color: #e74c3c; /* Czerwony przycisk CTA */
+    color: white; /* Biały tekst */
+    padding: 15px 30px; /* Wewnętrzny padding przycisku */
+    text-decoration: none; /* Bez podkreślenia */
+    font-weight: bold; /* Pogrubienie */
+    border-radius: 5px; /* Lekko zaokrąglone rogi */
+    transition: background-color 0.3s ease; /* Płynna zmiana koloru */
+}
+
+.home .cta:hover {
+    background-color: #c0392b; /* Ciemniejszy czerwony po najechaniu */
+}
+
+/* Sekcja O Nas */
+.about {
+    padding: 60px 20px; /* Duży padding */
+    background-color: rgb(27, 29, 30); /* Ciemne tło */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    border-radius: 8px; /* Zaokrąglone rogi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień */
+}
+
+.about h2 {
+    font-size: 2.5rem; /* Duży nagłówek */
+    margin-bottom: 20px; /* Odstęp pod nagłówkiem */
+}
+
+.about p {
+    font-size: 1.2rem; /* Większy tekst */
+    max-width: 800px; /* Ograniczenie szerokości tekstu */
+    margin: 0 auto; /* Wyśrodkowanie paragrafu */
+}
+
+/* Sekcja Usługi */
+.services {
+    padding: 60px 20px; /* Padding */
+    background-color: rgb(34, 44, 46); /* Ciemne tło */
+    text-align: center; /* Tekst wyśrodkowany */
+    border-radius: 8px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień */
+}
+
+.services h2 {
+    font-size: 2.5rem; /* Duży nagłówek */
+    margin-bottom: 30px; /* Odstęp */
+}
+
+.service-cards {
+    display: flex; /* Flexbox do kart */
+    justify-content: space-around; /* Równomierne rozłożenie */
+    flex-wrap: wrap; /* Zawijanie wierszy, jeśli brak miejsca */
+    gap: 20px; /* Odstęp między kartami */
+}
+
+.service-card {
+    background-color: rgb(27, 29, 30); /* Tło karty */
+    padding: 20px; /* Wewnętrzne odstępy */
+    width: 30%; /* Szerokość karty */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień */
+    border-radius: 8px; /* Zaokrąglenie */
+    transition: transform 0.3s ease; /* Animacja powiększenia */
+}
+
+.service-card h3 {
+    font-size: 1.5rem; /* Rozmiar nagłówka karty */
+    margin-bottom: 10px; /* Odstęp pod nagłówkiem */
+}
+
+.service-card p {
+    font-size: 1rem; /* Rozmiar tekstu opisu */
+}
+
+.service-card:hover {
+    transform: scale(1.05); /* Powiększenie przy najechaniu */
+}
+
+/* Sekcja Kontakt */
+.contact {
+    padding: 60px 20px; /* Padding */
+    background-color: rgb(27, 29, 30); /* Tło */
+    text-align: center; /* Wyśrodkowanie */
+}
+
+.contact h2 {
+    font-size: 2.5rem; /* Duży nagłówek */
+    margin-bottom: 30px; /* Odstęp */
+}
+
+.contact form {
+    max-width: 600px; /* Maksymalna szerokość formularza */
+    margin: 0 auto; /* Wyśrodkowanie formularza */
+}
+
+.contact form label {
+    font-size: 1rem; /* Rozmiar etykiet */
+    margin-bottom: 10px; /* Odstęp */
+    display: block; /* Etykieta jako blok */
+}
+
+.contact form input,
+.contact form textarea,
+.contact form button {
+    width: 100%; /* Szerokość na całą formę */
+    padding: 15px; /* Wewnętrzny odstęp */
+    font-size: 1rem; /* Rozmiar tekstu */
+    margin-bottom: 15px; /* Odstęp między polami */
+    border: 2px dashed rgb(88, 2, 2); /* Czerwony przerywany obramowanie */
+    background-color: #121212; /* Bardzo ciemne tło pól */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+}
+
+.contact form button {
+    background-color: #3498db; /* Niebieski przycisk */
+    color: white; /* Biały tekst */
+    border: none; /* Brak obramowania */
+    cursor: pointer; /* Kursor - wskazuje że można kliknąć */
+}
+
+.contact form button:hover {
+    background-color: #2980b9; /* Ciemniejszy niebieski po najechaniu */
+}
+
+/* Stopka */
+footer {
+    background-color: #2c3e50; /* Ciemne tło */
+    color: white; /* Biały tekst */
+    text-align: center; /* Wyśrodkowanie */
+    padding: 20px; /* Padding */
+}
+
+footer p {
+    font-size: 1rem; /* Rozmiar tekstu w stopce */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .home h1 {
+        font-size: 2.5rem; /* Mniejszy nagłówek na telefonach */
+    }
+
+    .service-cards {
+        flex-direction: column; /* Karty jedna pod drugą */
+        align-items: center; /* Wyśrodkowanie */
+    }
+
+    .service-card {
+        width: 80%; /* Szerokość karty dostosowana do telefonu */
+    }
+
+    .contact form {
+        width: 80%; /* Formularz też węższy */
+    }
+}
+
+/* Gradientowy kolor tekstu */
+span, .odn-copy {
+    background: linear-gradient(45deg, #e7e2e2, #ad0303); /* Gradientowe tło od jasnoszarego do ciemnoczerwonego */
+    background-clip: text; /* Tło widoczne tylko na literach */
+    -webkit-text-fill-color: transparent; /* Litery są przezroczyste – pokazują gradient */
+}
