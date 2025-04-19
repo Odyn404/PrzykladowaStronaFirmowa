@@ -1,236 +1,339 @@
-
-/* Miło cię widzieć ponownie! Teraz tak: Kod jest ten sam, z tą różnicą, że skupimy się na tym, co znajduje się w {} a nie przed nimi */
-/* Nazwałem plik style1.css zamiast style.css, aby uniknąć konfliktu między stylami z sekcji <head> a tymi z pliku zewnętrznego (style1.css) */
+/* Gwiazdka Dotyczy Wszystkich Elementów Na Stronie */
 * {
-    margin: 0; /* Usuwa domyślne marginesy dla wszystkich elementów */
-    padding: 0; /* Usuwa domyślne wypełnienie */
-    box-sizing: border-box; /* Zapewnia, że padding i border są wliczane w szerokość i wysokość elementu */
+    margin: 0; /* Marginesy */
+    padding: 0; /* Wypełnienie */
+    box-sizing: border-box; /* Obliczanie Szerokości I Wysokości Elementów */
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Ustawia czcionkę Arial jako główną */
-    color: #e4e4e4; /* Ustawia kolor tekstu */
-    background-color: #f4f4f4; /* Jasnoszare tło całej strony */
+    font-family: 'Arial', sans-serif; /* Czcionka */
+    color: #e4e4e4; /* Kolor Tekstu */
+    background-color: #f4f4f4; /* Kolor Tła */
 }
 
-/* Header */
+/* W Headerze Są Elementy, Które Nie Wyświetlają Się Na Stronie */
 header {
-    background-color: #2c3e50; /* Ciemny niebiesko-szary kolor tła */
-    color: white; /* Biały kolor tekstu */
-    padding: 20px 0; /* Góra i dół: 20px, boki: 0 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lekki cień pod nagłówkiem */
+    background-color: #2c3e50; /* Kolor Tła Nagłówka */
+    color: white; /* Kolor Tekstu Nagłówka */
+    padding: 20px 0; /* Wypełnienie Nagłówka */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień Nagłówka */
 }
 
+/* Nawigacja */
 header nav {
-    display: flex; /* Flexbox do układu poziomego */
-    justify-content: space-between; /* Przestrzeń pomiędzy logo a linkami */
-    align-items: center; /* Wyrównanie pionowe */
-    padding: 0 20px; /* Lewy i prawy padding po 20px */
+    display: flex; /* Flexbox Do Układania Elementów W Nagłówku */
+    justify-content: space-between; /* Rozmieszczenie Elementów W Nagłówku */
+    align-items: center; /* Wyrównanie Elementów W Nagłówku */
+    padding: 0 20px; /* Wypełnienie Nagłówka */
+    position: relative; /* Pozycjonowanie Nagłówka */
 }
 
+/* Nawigacja - Logo */
 header nav .logo h1 {
-    font-size: 1.8rem; /* Duży rozmiar czcionki logo */
-    font-weight: bold; /* Pogrubienie */
+    font-size: 1.8rem; /* Rozmiar Czcionki Logo */
+    font-weight: bold; /* Pogrubienie Czcionki Logo */
 }
 
-header nav .nav-links {
-    list-style: none; /* Usunięcie kropek przy liście */
-    display: flex; /* Układ poziomy linków */
+/* Nawigacja - Linki */
+header nav .nav-links { 
+    list-style: none; /* Usunięcie Kropek Z Listy */
+    display: flex; /* Flexbox Do Układania Linków */
 }
 
+/* Nawigacja - Linki - Elementy Listy */
 header nav .nav-links li {
-    margin: 0 15px; /* Odstępy między linkami */
+    margin: 0 15px; /* Marginesy Między Linkami */
 }
 
+/* Nawigacja - Linki - Napisy */
 header nav .nav-links a {
-    text-decoration: none; /* Brak podkreślenia linków */
-    color: white; /* Biały kolor linków */
-    font-size: 1rem; /* Standardowy rozmiar tekstu */
-    font-weight: 500; /* Półpogrubiony */
+    text-decoration: none; /* Usunięcie Podkreślenia Z Linków */
+    color: #08bdca;  /* Kolor Tekstu Linków */
+    font-size: 1rem; /* Rozmiar Czcionki Linków */
+    font-weight: 500; /* Pogrubienie Czcionki Linków */
 }
 
+/* Nawigacja - Linki - Napisy - Hover */
 header nav .nav-links a:hover {
-    color: #3498db; /* Niebieski kolor po najechaniu na link */
+    color: #3498db; /* Kolor Tekstu Linków Po Najechaniu */
 }
 
-/* Sekcja Hero (baner powitalny) */
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Ukrycie Hamburgera Na Większych Ekranach */
+    flex-direction: column; /* Ułożenie Hamburgera W Kolumnie */
+    justify-content: space-between; /* Rozmieszczenie Elementów Hamburgera */
+    width: 30px; /* Szerokość Hamburgera */
+    height: 22px; /* Wysokość Hamburgera */
+    cursor: pointer; /* Kursor Wskazujący Na Interaktywność Hamburgera */
+}
+
+/* Hamburger - Linie */
+.hamburger span {
+    height: 4px; /* Wysokość Linii Hamburgera */
+    background: linear-gradient(45deg, #e7e2e2, #ad0303); /* Gradient Koloru Linii Hamburgera */
+    border-radius: 5px; /* Zaokrąglenie Linii Hamburgera */
+    transition: all 0.3s ease; /* Animacja Przejścia Linii Hamburgera */
+}
+
+/* Aktywna Klasa Hamburgera Zamieniająca 3 Kreski W X (Górna) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px); /* Rotacja I Przesunięcie Pierwszej Linii Hamburgera */
+    background: linear-gradient(45deg, #420079, #e7e2e2); /* Gradient Koloru Linii Hamburgera */
+}
+
+/* Aktywna Klasa Hamburgera Zamieniająca 3 Kreski W X (Środkowa) */
+.hamburger.active span:nth-child(2) { 
+    opacity: 0; /* Ukrycie Środkowej Linii Hamburgera (Środkowej Kreski) */
+}
+
+/* Aktywna Klasa Hamburgera Zamieniająca 3 Kreski W X (Dolna) */
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); /* Rotacja I Przesunięcie Trzeciej Linii Hamburgera */
+    background: linear-gradient(45deg, #420079, #e7e2e2); /* Gradient Koloru Linii Hamburgera */
+}
+
+/* Menu Mobilne Po Aktywacji Hamburgera */
+@media (max-width: 768px) {
+    /* Nawigacja - Logo */
+    .hamburger {
+        display: flex; /* Wyświetlenie Hamburgera Na Mniejszych Ekranach */
+    }
+
+    /* Nawigacja - Linki - Lista */
+    .nav-links {
+        position: absolute; /* Pozycjonowanie Absolutne Listy Linków */
+        top: 50px; /* Odległość Od Headera */
+        left: 0; /* Wyrównanie Do Lewej */
+        width: 100%; /* Szerokość Na Całą Stronę */
+        background-color: #2c3e50; /* Kolor Tła Listy Linków */
+        flex-direction: column; /* Ułożenie Linków W Kolumnie */
+        align-items: center; /* Wyśrodkowanie Linków */
+        max-height: 0; /* Początkowa Wysokość 0 (Ukrycie) */
+        overflow: hidden; /* Ukrycie Zawartości Poza Obszarem */
+        transition: max-height 0.3s ease-in-out; /* Animacja Rozwijania */
+    }
+
+    /* Nawigacja - Linki - Elementy Listy */
+    .nav-links li {
+        margin: 15px 0; /* Odstępy Między Linkami */
+    }
+
+    /* Nawigacja - Linki - Napisy */
+    .nav-links.open {
+        max-height: 300px; /* Rozwinięcie Menu Na Maksymalną Wysokość */
+    }
+}
+
+/* Sekcja Home */
 .home {
-    background: linear-gradient(45deg, #3498db, #8e44ad); /* Gradientowe tło sekcji */
-    color: white; /* Biały tekst */
-    padding: 80px 20px; /* Duże wypełnienie dookoła */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    border-radius: 15px; /* Zaokrąglenie rogów */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Cień dla głębi */
+    background: linear-gradient(45deg, #3498db, #8e44ad); /* Gradient Tła */
+    color: white; /* Kolor Tekstu */
+    padding: 80px 20px; /* Wypełnienie Sekcji */
+    text-align: center; /* Wyśrodkowanie Tekstu */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Cień Sekcji */
 }
 
+/* Sekcja Home - Nagłówek (1 Stopnia) */
 .home h1 {
-    font-size: 3rem; /* Bardzo duży nagłówek */
-    margin-bottom: 20px; /* Odstęp pod nagłówkiem */
+    font-size: 3rem; /* Rozmiar Czcionki Nagłówka */
+    margin-bottom: 20px; /* Odstęp Poniżej Nagłówka */
 }
 
+/* Sekcja Home - Akapit */
 .home p {
-    font-size: 1.2rem; /* Nieco większy tekst */
-    margin-bottom: 40px; /* Większy odstęp pod paragrafem */
+    font-size: 1.2rem; /* Rozmiar Czcionki Akapitu */
+    margin-bottom: 40px; /* Odstęp Poniżej Akapitu */
 }
 
+/* Sekcja Home - Przycisk CTA (Call To Action) */
 .home .cta {
-    background-color: #e74c3c; /* Czerwony przycisk CTA */
-    color: white; /* Biały tekst */
-    padding: 15px 30px; /* Wewnętrzny padding przycisku */
-    text-decoration: none; /* Bez podkreślenia */
-    font-weight: bold; /* Pogrubienie */
-    border-radius: 5px; /* Lekko zaokrąglone rogi */
-    transition: background-color 0.3s ease; /* Płynna zmiana koloru */
+    background-color: #e74c3c; /* Kolor Tła Przyciski */
+    color: white; /* Kolor Tekstu Przyciski */
+    padding: 15px 30px; /* Wypełnienie Przyciski */
+    text-decoration: none; /* Usunięcie Podkreślenia */
+    font-weight: bold; /* Pogrubienie Tekstu */
+    border-radius: 5px; /* Zaokrąglenie Rogów Przyciski */
+    transition: background-color 0.3s ease; /* Animacja Zmiany Koloru */
 }
 
+/* Sekcja Home - Przycisk CTA - Hover (Hover - Akcja Po Najechaniu Kursorem) */
 .home .cta:hover {
-    background-color: #c0392b; /* Ciemniejszy czerwony po najechaniu */
+    background-color: #c0392b; /* Kolor Tła Przyciski Po Najechaniu */
 }
 
 /* Sekcja O Nas */
 .about {
-    padding: 60px 20px; /* Duży padding */
-    background-color: rgb(27, 29, 30); /* Ciemne tło */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    border-radius: 8px; /* Zaokrąglone rogi */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień */
+    padding: 60px 20px; /* Wypełnienie Sekcji */
+    background-color: rgb(27, 29, 30); /* Kolor Tła */
+    text-align: center; /* Wyśrodkowanie Tekstu */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień Sekcji */
 }
 
+/* Sekcja O Nas - Nagłówek (2 Stopnia) */
 .about h2 {
-    font-size: 2.5rem; /* Duży nagłówek */
-    margin-bottom: 20px; /* Odstęp pod nagłówkiem */
+    font-size: 2.5rem; /* Rozmiar Czcionki Nagłówka */
+    margin-bottom: 20px; /* Odstęp Poniżej Nagłówka */
 }
 
+/* Sekcja O Nas - Akapit */
 .about p {
-    font-size: 1.2rem; /* Większy tekst */
-    max-width: 800px; /* Ograniczenie szerokości tekstu */
-    margin: 0 auto; /* Wyśrodkowanie paragrafu */
+    font-size: 1.2rem; /* Rozmiar Czcionki Akapitu */
+    max-width: 800px; /* Maksymalna Szerokość Akapitu */
+    margin: 0 auto; /* Wyśrodkowanie Akapitu */
 }
 
 /* Sekcja Usługi */
 .services {
-    padding: 60px 20px; /* Padding */
-    background-color: rgb(34, 44, 46); /* Ciemne tło */
-    text-align: center; /* Tekst wyśrodkowany */
-    border-radius: 8px; /* Zaokrąglenie rogów */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień */
+    padding: 60px 20px; /* Wypełnienie Sekcji */
+    background-color: rgb(34, 44, 46); /* Kolor Tła */
+    text-align: center; /* Wyśrodkowanie Tekstu */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień Sekcji */
 }
 
+/* Sekcja Usługi - Nagłówek (2 Stopnia) */
 .services h2 {
-    font-size: 2.5rem; /* Duży nagłówek */
-    margin-bottom: 30px; /* Odstęp */
+    font-size: 2.5rem; /* Rozmiar Czcionki Nagłówka */
+    margin-bottom: 30px; /* Odstęp Poniżej Nagłówka */
 }
 
+/* Sekcja Usługi - Karty Usług */
 .service-cards {
-    display: flex; /* Flexbox do kart */
-    justify-content: space-around; /* Równomierne rozłożenie */
-    flex-wrap: wrap; /* Zawijanie wierszy, jeśli brak miejsca */
-    gap: 20px; /* Odstęp między kartami */
+    display: flex; /* Flexbox Do Układania Kart */
+    justify-content: space-around; /* Rozmieszczenie Kart */
+    flex-wrap: wrap; /* Zawijanie Kart W Wiersze */
+    gap: 20px; /* Odstępy Między Kartami */
 }
 
+/* Sekcja Usługi - Karty Usług - Pojedyncza Karta */
 .service-card {
-    background-color: rgb(27, 29, 30); /* Tło karty */
-    padding: 20px; /* Wewnętrzne odstępy */
-    width: 30%; /* Szerokość karty */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień */
-    border-radius: 8px; /* Zaokrąglenie */
-    transition: transform 0.3s ease; /* Animacja powiększenia */
+    background-color: rgb(27, 29, 30); /* Kolor Tła Karty */
+    padding: 20px; /* Wypełnienie Karty */
+    width: 30%; /* Szerokość Karty */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień Karty */
+    border-radius: 8px; /* Zaokrąglenie Rogów */
+    transition: transform 0.3s ease; /* Animacja Powiększenia */
 }
 
+/* Sekcja Usługi - Karty Usług - Nagłówek (3 Stopnia) */
 .service-card h3 {
-    font-size: 1.5rem; /* Rozmiar nagłówka karty */
-    margin-bottom: 10px; /* Odstęp pod nagłówkiem */
+    font-size: 1.5rem; /* Rozmiar Czcionki Nagłówka Karty */
+    margin-bottom: 10px; /* Odstęp Poniżej Nagłówka */
 }
 
+/* Sekcja Usługi - Karty Usług - Akapit */
 .service-card p {
-    font-size: 1rem; /* Rozmiar tekstu opisu */
+    font-size: 1rem; /* Rozmiar Czcionki Akapitu */
 }
 
+/* Sekcja Usługi - Karty Usług - Ikona */
 .service-card:hover {
-    transform: scale(1.05); /* Powiększenie przy najechaniu */
+    transform: scale(1.05); /* Powiększenie Karty Po Najechaniu */
 }
 
 /* Sekcja Kontakt */
 .contact {
-    padding: 60px 20px; /* Padding */
-    background-color: rgb(27, 29, 30); /* Tło */
-    text-align: center; /* Wyśrodkowanie */
+    padding: 60px 20px; /* Wypełnienie Sekcji */
+    background-color: rgb(27, 29, 30); /* Kolor Tła */
+    text-align: center; /* Wyśrodkowanie Tekstu */
 }
 
+/* Sekcja Kontakt - Nagłówek (2 Stopnia) */
 .contact h2 {
-    font-size: 2.5rem; /* Duży nagłówek */
-    margin-bottom: 30px; /* Odstęp */
+    font-size: 2.5rem; /* Rozmiar Czcionki Nagłówka */
+    margin-bottom: 30px; /* Odstęp Poniżej Nagłówka */
 }
 
+/* Sekcja Kontakt - Akapit */
 .contact form {
-    max-width: 600px; /* Maksymalna szerokość formularza */
-    margin: 0 auto; /* Wyśrodkowanie formularza */
+    max-width: 600px; /* Maksymalna Szerokość Formularza */
+    margin: 0 auto; /* Wyśrodkowanie Formularza */
 }
 
+/* Sekcja Kontakt - Formularz - Etykieta */
 .contact form label {
-    font-size: 1rem; /* Rozmiar etykiet */
-    margin-bottom: 10px; /* Odstęp */
-    display: block; /* Etykieta jako blok */
+    font-size: 1rem; /* Rozmiar Czcionki Etykiety */
+    margin-bottom: 10px; /* Odstęp Poniżej Etykiety */
+    display: block; /* Wyświetlenie Etykiety Jako Blok */
 }
-
+ 
+/* Input - Stylizuje Pola Tekstowe, Zapewniając Spójny Wygląd I Układ. */
+/* Textarea - Stylizuje Obszar Tekstowy, Dostosowując Go Do Reszty Formularza. */
+/* Button - Stylizuje Przycisk, Nadając Mu Interaktywność I Estetyczny Wygląd. */
 .contact form input,
 .contact form textarea,
 .contact form button {
-    width: 100%; /* Szerokość na całą formę */
-    padding: 15px; /* Wewnętrzny odstęp */
-    font-size: 1rem; /* Rozmiar tekstu */
-    margin-bottom: 15px; /* Odstęp między polami */
-    border: 2px dashed rgb(88, 2, 2); /* Czerwony przerywany obramowanie */
-    background-color: #121212; /* Bardzo ciemne tło pól */
-    border-radius: 5px; /* Zaokrąglenie rogów */
+    width: 100%; /* Szerokość Na Całą Szerokość Formularza */
+    padding: 15px; /* Wypełnienie Elementów */
+    font-size: 1rem; /* Rozmiar Czcionki */
+    margin-bottom: 15px; /* Odstęp Poniżej Elementów */
+    border: 2px dashed rgb(88, 2, 2); /* Styl Ramki */
+    background-color: #121212; /* Kolor Tła */
+    border-radius: 5px; /* Zaokrąglenie Rogów */
 }
 
+/* Stylizacja Przyciski W Sekcji Kontakt (Contact, Button) */
 .contact form button {
-    background-color: #3498db; /* Niebieski przycisk */
-    color: white; /* Biały tekst */
-    border: none; /* Brak obramowania */
-    cursor: pointer; /* Kursor - wskazuje że można kliknąć */
+    background-color: #3498db; /* Kolor Tła Przyciski */
+    color: white; /* Kolor Tekstu Przyciski */
+    border: none; /* Usunięcie Ramki */
+    cursor: pointer; /* Kursor Wskazujący Na Interaktywność */
 }
 
+/* Akcja Po Najechaniu Kursorem Dla Przyciski W Sekcji Kontakt (Hover) */
 .contact form button:hover {
-    background-color: #2980b9; /* Ciemniejszy niebieski po najechaniu */
+    background-color: #2980b9; /* Kolor Tła Przyciski Po Najechaniu */
 }
 
 /* Stopka */
 footer {
-    background-color: #2c3e50; /* Ciemne tło */
-    color: white; /* Biały tekst */
-    text-align: center; /* Wyśrodkowanie */
-    padding: 20px; /* Padding */
+    background-color: #2c3e50; /* Kolor Tła Stopki */
+    color: white; /* Kolor Tekstu Stopki */
+    text-align: center; /* Wyśrodkowanie Tekstu */
+    padding: 20px; /* Wypełnienie Stopki */
 }
 
+/* Stopka - Akapit */
 footer p {
-    font-size: 1rem; /* Rozmiar tekstu w stopce */
+    font-size: 1rem; /* Rozmiar Czcionki Tekstu Stopki */
 }
 
 /* Responsywność */
 @media (max-width: 768px) {
+    /* Nawigacja - Nagłówek (1 Stopnia) */
     .home h1 {
-        font-size: 2.5rem; /* Mniejszy nagłówek na telefonach */
+        font-size: 2.5rem; /* Zmniejszenie Rozmiaru Czcionki Nagłówka */
     }
 
+    /* Nawigacja - Linki - Napisy */
     .service-cards {
-        flex-direction: column; /* Karty jedna pod drugą */
-        align-items: center; /* Wyśrodkowanie */
+        flex-direction: column; /* Ułożenie Kart W Kolumnie */
+        align-items: center; /* Wyśrodkowanie Kart */
     }
 
+    /* Nawigacja - Linki - Elementy Listy */
     .service-card {
-        width: 80%; /* Szerokość karty dostosowana do telefonu */
+        width: 80%; /* Zwiększenie Szerokości Kart */
     }
 
+    /* Sekcja Usługi - Karty Usług - Nagłówek */
     .contact form {
-        width: 80%; /* Formularz też węższy */
+        width: 80%; /* Zmniejszenie Szerokości Formularza */
     }
 }
 
-/* Gradientowy kolor tekstu */
+/* Gradient Tekstu Odyn I Hack, Bo Span Odpowiada Za To, By 2 Wyrazy Były 1 */
 span, .odn-copy {
-    background: linear-gradient(45deg, #e7e2e2, #ad0303); /* Gradientowe tło od jasnoszarego do ciemnoczerwonego */
-    background-clip: text; /* Tło widoczne tylko na literach */
-    -webkit-text-fill-color: transparent; /* Litery są przezroczyste – pokazują gradient */
+    background: linear-gradient(45deg, #e7e2e2, #ad0303); /* Gradient Tekstu */
+    background-clip: text; /* Wyświetlenie Gradientu Tylko Na Tekście */
+    -webkit-text-fill-color: transparent; /* Przezroczystość Tekstu */
+    transition: all 0.3s ease; /* Animacja Przejścia Gradientu */
+} 
+
+/* Aminacja Przejścia Gradientu Po Najechaniu */
+.odn-copy:hover, .hack:hover {
+    background: linear-gradient(45deg, #ad0303, #e7e2e2); /* Gradient Tekstu Po Najechaniu */
+    background-clip: text; /* Wyświetlenie Gradientu Tylko Na Tekście */
+    -webkit-text-fill-color: transparent; /* Przezroczystość Tekstu */
+    transition: background 0.5s ease; /* Animacja Przejścia Gradientu */
 }
